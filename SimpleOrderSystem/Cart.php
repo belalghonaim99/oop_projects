@@ -18,9 +18,11 @@ class Cart
     }   
     public function showCart()    
     {
-        $allCart = $this->products;
-        $allPrice = $this->getTotalPrice();
-        return $allCart;
+        foreach($this->products as $product)
+            {
+                echo $product->getName() . " - " . $product->getPrice() . " EGP <br>"; 
+            }
+            echo "Total: " . $this->getTotalPrice() . " EGP <br>";
     }
 
 }
