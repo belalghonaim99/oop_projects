@@ -4,6 +4,9 @@ require('Product.php');
 require('Payment.php');
 require('CashPayment.php');
 require('VisaPayment.php');
+require('Discount.php');
+require('FixedDiscount.php');
+require('PercentageDiscount.php');
 
 $productOne = new Product('Laptop', 1000);
 $productOne->getInfo();
@@ -25,3 +28,12 @@ $visaPayment = new VisaPayments(12354);
 echo $payment->pay($cart->getTotalPrice());
 echo '<br>';
 echo $visaPayment->pay($cart->getTotalPrice());
+echo '<br>';
+
+$discount = new FixedDiscount();
+echo $discount->apply(200);
+
+echo '<br>';
+$percentDiscount = new PercentageDiscount();
+
+echo $percentDiscount->apply(1000);
