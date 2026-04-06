@@ -1,9 +1,13 @@
 <?php
 class FixedDiscount extends Discount
 {
-    private $fixed = 50;
+    private $fixed;
+    
+    public function __construct($fixed) {
+        $this->fixed = $fixed;
+    }
     public function apply($total)
     {
-        return $total - 50; // 200 - 50
+        return $total - $this->fixed; 
     }
 }

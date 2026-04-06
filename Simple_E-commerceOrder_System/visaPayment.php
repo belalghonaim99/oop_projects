@@ -6,8 +6,8 @@ class VisaPayment implements PaymentMethods
     public function __construct($cardNumber) {
         $this->cardNumber = $cardNumber;
     }
-    public function pay_with($amount)
+    public function payWith($amount)
     {
-        return  "Paid $amount Using Visa({$this->cardNumber})";
+        return  "Paid $amount Using Visa ({$this->cardNumber})";
     }
 }

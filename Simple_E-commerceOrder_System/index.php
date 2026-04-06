@@ -7,16 +7,38 @@ require('product.php');
 require 'paymentMethod.php';
 require 'cashPayment.php';
 require 'visaPayment.php';
+require 'order.php';
 
-$productOne = new Products('Iphone', 1000);
+$customer = new Customer("Belal");
 
-$newDiscount = new PercentageDiscount();
-echo $newDiscount->apply(1000);
+$order = new Order($customer);
 
+$order->addProduct(new Products("Laptop", 10000));
+
+$order->addProduct(new Products("Mouse", 500));
+
+
+$order->setDiscount(new PercentageDiscount(10));
+
+
+$order->setPaymentMethod(new VisaPayment("1234"));
+
+
+echo $order->checkout();
 echo '<br>';
-$fixed_Discount = new FixedDiscount();
+$customerTwo = new Customer("Omar");
 
-echo $fixed_Discount->apply(1000);
-echo '<br>';
-$cash = new CashPayment('Iphone', 1000);
-echo $cash->pay_with(1000);
+$order = new Order($customerTwo);
+
+$order->addProduct(new Products("Apple", 15000));
+
+$order->addProduct(new Products("AppleWatch", 1500));
+
+
+$order->setDiscount(new FixedDiscount(150));
+
+
+$order->setPaymentMethod(new CashPayment());
+
+
+echo $order->checkout();

@@ -1,5 +1,5 @@
 <?php
 interface PaymentMethods
 {
-    public function pay_with($amount);
+    public function payWith($amount);
 }

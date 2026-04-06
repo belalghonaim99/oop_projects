@@ -1,7 +1,7 @@
 <?php
 class CashPayment implements PaymentMethods
 {
-    public function pay_with($amount)
+    public function payWith($amount)
     {
         return "Paid $amount Using Cash";
     }
