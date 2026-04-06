@@ -37,3 +37,8 @@ echo '<br>';
 $percentDiscount = new PercentageDiscount();
 
 echo $percentDiscount->apply(1000);
+
+echo '<br>';
+$cart->setDiscount($discount);
+
+$cart->showCart();
